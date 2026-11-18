@@ -1,0 +1,109 @@
+paths:
+  static: public
+  uploads: public/uploads
+timezone: Pacific/Auckland
+markdown:
+  engine: commonmark
+  options:
+    html: true
+    table: true
+    strikethrough: true
+collections_config:
+  pages:
+    path: content/pages
+    url: /[slug]/
+    disable_add: true
+    _enabled_editors:
+      - visual
+  mdc:
+    path: content/mdc
+    url: /mdc/[slug]/
+    disable_add: true
+    _enabled_editors:
+      - content
+      - visual
+_editables:
+  content:
+    bold: true
+    italic: true
+    link: true
+    snippet: true
+_snippets:
+  callout:
+    snippet: "::callout[[props]]\n[[body]]\n::"
+    inline: false
+    preview:
+      text: Callout
+    params:
+      props:
+        parser: key_values
+        options:
+          models:
+            - editor_key: type
+              type: string
+          format:
+            root_boundary:
+              start: "{"
+              end: "}"
+            remove_empty_root_boundary: true
+            root_value_delimiter: "="
+            root_pair_delimiter:
+              - " "
+            string_boundary:
+              - '"'
+            allow_implied_values: true
+      body:
+        parser: content
+        options:
+          editor_key: body
+          allow_nested: true
+          trim_text: true
+    _inputs:
+      type:
+        type: select
+        options:
+          values:
+            - info
+            - warning
+      body:
+        type: markdown
+  cards:
+    snippet: "::cards\n[[body]]\n::"
+    inline: false
+    preview:
+      text: Cards
+    params:
+      body:
+        parser: content
+        options:
+          editor_key: body
+          allow_nested: true
+          trim_text: true
+  card:
+    snippet: ":::card[[props]]\n[[body]]\n:::"
+    inline: false
+    preview:
+      text: Card
+    params:
+      props:
+        parser: key_values
+        options:
+          models:
+            - editor_key: title
+              type: string
+          format:
+            root_boundary:
+              start: "{"
+              end: "}"
+            remove_empty_root_boundary: true
+            root_value_delimiter: "="
+            root_pair_delimiter:
+              - " "
+            string_boundary:
+              - '"'
+      body:
+        parser: content
+        options:
+          editor_key: body
+          allow_nested: true
+          trim_text: true
