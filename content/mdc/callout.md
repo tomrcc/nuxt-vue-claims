@@ -1,8 +1,7 @@
 ---
 title: MDC — flat callout
 ---
-
-Intro paragraph.
+Intros paragraph.
 
 ::callout{type="info"}
 Callout body with **bold** text.
