@@ -68,7 +68,7 @@ _snippets:
       body:
         type: markdown
   cards:
-    snippet: "::cards\n[[body]]\n::"
+    snippet: "::cards\n[[body]]\n::\n"
     inline: false
     preview:
       text: Cards
